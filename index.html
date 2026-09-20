@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inga Sanchez Jordan — Portafolio estudiantil</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-home">
+
+<!-- ================= ENCABEZADO FIJO (logo + datos) ================= -->
+<header class="topnav">
+  <div class="wrap topnav-inner">
+    <div class="brand">
+      <div class="brand-logo">
+         <img src="logo-upla.png" alt="Logo" class="brand-image">
+       </div>
+      <div class="brand-text">
+        <div class="brand-name">Universidad Peruana Los Andes</div>
+        <div class="brand-sub">Facultad de Ingeniería de Sistemas</div>
+      </div>
+    </div>
+    <div class="header-data" id="headerData">
+      <span class="hd-name">INGA SANCHEZ JORDAN</span>
+      <span class="hd-dot">•</span>
+      <span class="hd-item">Cód. u00055f</span>
+      <span class="hd-dot">•</span>
+      <span class="hd-item">Ing. de Sistemas y Computacion</span>
+      <span class="hd-dot">•</span>
+      <span class="hd-item">Huancayo</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PÁGINA 1 · INICIO ================= -->
+<main class="page active" id="page-inicio">
+  <div class="wrap hero">
+    <div class="hero-info">
+      <span class="eyebrow fade-up d1">Portafolio de JORDAN</span>
+      <h1 class="course-title fade-up d2">ALGORITMOS Y ESTRUCTURA DE DATOS</h1>
+      <p class="hero-desc fade-up d3">
+        Presentacion de las actividades.
+      </p>
+
+      <div class="hero-actions fade-up d4">
+        <button class="btn-primary" onclick="goTo('page-unidades')">Ver Unidades</button>
+      </div>
+    </div>
+
+    <div class="hero-photo fade-up d3">
+      <div class="photo-frame">
+        <img src="usuario.png" alt="Foto de Jordan Inga Sánchez" class="student-photo">
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PÁGINA · UNIDADES ================= -->
+<main class="page" id="page-unidades">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-inicio')">← Inicio</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Contenido del curso</span>
+      <h2>Unidades del curso</h2>
+      <p>Elige una unidad para ver sus semanas.</p>
+    </div>
+    <div class="option-grid">
+      <button class="option-btn" onclick="goTo('page-unidad-1')">
+        <div class="option-num">01</div>
+        <div class="option-title">Unidad 1: CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</div>
+        <div class="option-count">4 semanas</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-unidad-2')">
+        <div class="option-num">02</div>
+        <div class="option-title">Unidad 2: PILAS, COLAS Y RECURSIVIDAD</div>
+        <div class="option-count">4 semanas</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-unidad-3')">
+        <div class="option-num">03</div>
+        <div class="option-title">Unidad 3:LISTAS ENLAZADAS</div>
+        <div class="option-count">4 semanas</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-unidad-4')">
+        <div class="option-num">04</div>
+        <div class="option-title">Unidad 4: ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</div>
+        <div class="option-count">4 semanas</div>
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PÁGINA · UNIDAD 1 ================= -->
+<main class="page" id="page-unidad-1">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidades')">← Unidades</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 1</span>
+      <h2>CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</h2>
+    </div>
+    <div class="option-grid">
+      <button class="option-btn" onclick="goTo('page-u1-s1')">
+        <div class="option-num">01</div>
+        <div class="option-title">Semana 1</div>
+        <div class="option-desc">Entregas correspondientes a la semana 1 de la unidad 1.</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-u1-s2')">
+        <div class="option-num">02</div>
+        <div class="option-title">Semana 2</div>
+        <div class="option-desc">Entregas correspondientes a la semana 2 de la unidad 1.</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-u1-s3')">
+        <div class="option-num">03</div>
+        <div class="option-title">Semana 3</div>
+        <div class="option-desc">Entregas correspondientes a la semana 3 de la unidad 1.</div>
+      </button>
+      <button class="option-btn" onclick="goTo('page-u1-s4')">
+        <div class="option-num">04</div>
+        <div class="option-title">Semana 4</div>
+        <div class="option-desc">Entregas correspondientes a la semana 4 de la unidad 1.</div>
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PÁGINA · UNIDAD 2 ================= -->
+<main class="page" id="page-unidad-2">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidades')">← Unidades</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 2</span>
+      <h2>PILAS, COLAS Y RECURSIVIDAD</h2>
+    </div>
+    <div class="option-grid">
+      <button class="option-btn" onclick="goTo('page-u2-s1')">
+        <div class="option-num">01</div>
+        <div class="option-title">Semana 1</div>
+        <div class="option-desc">Entregas correspondientes a la semana 1 de la unidad 2.</div>
+       
+      </button>
+      <button class="option-btn" onclick="goTo('page-u2-s2')">
+        <div class="option-num">02</div>
+        <div class="option-title">Semana 2</div>
+        <div class="option-desc">Entregas correspondientes a la semana 2 de la unidad 2.</div>
+       
+      </button>
+      <button class="option-btn" onclick="goTo('page-u2-s3')">
+        <div class="option-num">03</div>
+        <div class="option-title">Semana 3</div>
+        <div class="option-desc">Entregas correspondientes a la semana 3 de la unidad 2.</div>
+   
+      </button>
+      <button class="option-btn" onclick="goTo('page-u2-s4')">
+        <div class="option-num">04</div>
+        <div class="option-title">Semana 4</div>
+        <div class="option-desc">Entregas correspondientes a la semana 4 de la unidad 2.</div>
+        <div class="option-count">1 trabajo</div>
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PÁGINA · UNIDAD 3 ================= -->
+<main class="page" id="page-unidad-3">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidades')">← Unidades</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 3</span>
+      <h2>LISTAS ENLAZADAS</h2>
+    </div>
+    <div class="option-grid">
+      <button class="option-btn" onclick="goTo('page-u3-s1')">
+        <div class="option-num">01</div>
+        <div class="option-title">Semana 1</div>
+        <div class="option-desc">Entregas correspondientes a la semana 1 de la unidad 3.</div>
+       
+      </button>
+      <button class="option-btn" onclick="goTo('page-u3-s2')">
+        <div class="option-num">02</div>
+        <div class="option-title">Semana 2</div>
+        <div class="option-desc">Entregas correspondientes a la semana 2 de la unidad 3.</div>
+        
+      </button>
+      <button class="option-btn" onclick="goTo('page-u3-s3')">
+        <div class="option-num">03</div>
+        <div class="option-title">Semana 3</div>
+        <div class="option-desc">Entregas correspondientes a la semana 3 de la unidad 3.</div>
+     
+      </button>
+      <button class="option-btn" onclick="goTo('page-u3-s4')">
+        <div class="option-num">04</div>
+        <div class="option-title">Semana 4</div>
+        <div class="option-desc">Entregas correspondientes a la semana 4 de la unidad 3.</div>
+    
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= PÁGINA · UNIDAD 4 ================= -->
+<main class="page" id="page-unidad-4">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidades')">← Unidades</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 4</span>
+      <h2>ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</h2>
+    </div>
+    <div class="option-grid">
+      <button class="option-btn" onclick="goTo('page-u4-s1')">
+        <div class="option-num">01</div>
+        <div class="option-title">Semana 1</div>
+        <div class="option-desc">Entregas correspondientes a la semana 1 de la unidad 4.</div>
+      
+      </button>
+      <button class="option-btn" onclick="goTo('page-u4-s2')">
+        <div class="option-num">02</div>
+        <div class="option-title">Semana 2</div>
+        <div class="option-desc">Entregas correspondientes a la semana 2 de la unidad 4.</div>
+  
+      </button>
+      <button class="option-btn" onclick="goTo('page-u4-s3')">
+        <div class="option-num">03</div>
+        <div class="option-title">Semana 3</div>
+        <div class="option-desc">Entregas correspondientes a la semana 3 de la unidad 4.</div>
+    
+      </button>
+      <button class="option-btn" onclick="goTo('page-u4-s4')">
+        <div class="option-num">04</div>
+        <div class="option-title">Semana 4</div>
+        <div class="option-desc">Entregas correspondientes a la semana 4 de la unidad 4.</div>
+ 
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= unidad-- 1 modificar las fotos o documentos ================= -->
+
+
+<main class="page" id="page-u1-s1">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-1')">← Unidad 1</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 1 · Semana 1</span>
+      <h2>CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</h2>
+      <p>Trabajos entregados en la semana 1.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-stack">HTML5</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/prueba.jpg', 'Evidencia del trabajo - Unidad 1 Semana 1')">🖼️ u1s1-evidencia.jpg</button>
+           <div class="work-title">trabajo semana 1</div> 
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <a class="file-btn file-btn--pdf" href="trabajos/u1s1-informe.pdf" target="_blank" rel="noopener">📄 u1s1-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button disabled>← Semana anterior</button>
+      <button onclick="goTo('page-u1-s2')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u1-s2">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-1')">← Unidad 1</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 1 · Semana 2</span>
+      <h2>CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</h2>
+      <p>Trabajos entregados en la semana 2.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 2</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">CSS Grid</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u1s2-evidencia.jpg', 'Evidencia del trabajo - Unidad 1 Semana 2')">🖼️ u1s2-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u1s2-informe.pdf" target="_blank" rel="noopener">📄 u1s2-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u1-s1')">← Semana anterior</button>
+      <button onclick="goTo('page-u1-s3')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u1-s3">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-1')">← Unidad 1</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 1 · Semana 3</span>
+      <h2>CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</h2>
+      <p>Trabajos entregados en la semana 3.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 3</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u1s3-evidencia.jpg', 'Evidencia del trabajo - Unidad 1 Semana 3')">🖼️ u1s3-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u1s3-informe.pdf" target="_blank" rel="noopener">📄 u1s3-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u1-s2')">← Semana anterior</button>
+      <button onclick="goTo('page-u1-s4')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u1-s4">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-1')">← Unidad 1</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 1 · Semana 4</span>
+      <h2>CONCEPTOS DE ALGORITMOS Y ESTRUCTURAS DE DATOS</h2>
+      <p>Trabajos entregados en la semana 4.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 4</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u1s4-evidencia.jpg', 'Evidencia del trabajo - Unidad 1 Semana 4')">🖼️ u1s4-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u1s4-informe.pdf" target="_blank" rel="noopener">📄 u1s4-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u1-s3')">← Semana anterior</button>
+      <button disabled>Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= unidad-- 2 modificar las fotos o documentos ================= -->
+
+<main class="page" id="page-u2-s1">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-2')">← Unidad 2</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 2 · Semana 1</span>
+      <h2>PILAS, COLAS Y RECURSIVIDAD</h2>
+      <p>Trabajos entregados en la semana 1.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 1</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">JavaScript</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u2s1-evidencia.jpg', 'Evidencia del trabajo - Unidad 2 Semana 1')">🖼️ u2s1-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u2s1-informe.pdf" target="_blank" rel="noopener">📄 u2s1-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button disabled>← Semana anterior</button>
+      <button onclick="goTo('page-u2-s2')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u2-s2">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-2')">← Unidad 2</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 2 · Semana 2</span>
+      <h2>PILAS, COLAS Y RECURSIVIDAD</h2>
+      <p>Trabajos entregados en la semana 2.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 2</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">React · Firebase</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u2s2-evidencia.jpg', 'Evidencia del trabajo - Unidad 2 Semana 2')">🖼️ u2s2-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u2s2-informe.pdf" target="_blank" rel="noopener">📄 u2s2-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u2-s1')">← Semana anterior</button>
+      <button onclick="goTo('page-u2-s3')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u2-s3">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-2')">← Unidad 2</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 2 · Semana 3</span>
+      <h2>PILAS, COLAS Y RECURSIVIDAD</h2>
+      <p>Trabajos entregados en la semana 3.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 3</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u2s3-evidencia.jpg', 'Evidencia del trabajo - Unidad 2 Semana 3')">🖼️ u2s3-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u2s3-informe.pdf" target="_blank" rel="noopener">📄 u2s3-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u2-s2')">← Semana anterior</button>
+      <button onclick="goTo('page-u2-s4')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u2-s4">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-2')">← Unidad 2</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 2 · Semana 4</span>
+      <h2>PILAS, COLAS Y RECURSIVIDAD</h2>
+      <p>Trabajos entregados en la semana 4.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 4</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u2s4-evidencia.jpg', 'Evidencia del trabajo - Unidad 2 Semana 4')">🖼️ u2s4-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u2s4-informe.pdf" target="_blank" rel="noopener">📄 u2s4-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u2-s3')">← Semana anterior</button>
+      <button disabled>Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+<!-- ================= unidad-- 3 modificar las fotos o documentos ================= -->
+
+<main class="page" id="page-u3-s1">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-3')">← Unidad 3</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 3 · Semana 1</span>
+      <h2>LISTAS ENLAZADAS</h2>
+      <p>Trabajos entregados en la semana 1.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 1</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u3s1-evidencia.jpg', 'Evidencia del trabajo - Unidad 3 Semana 1')">🖼️ u3s1-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u3s1-informe.pdf" target="_blank" rel="noopener">📄 u3s1-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button disabled>← Semana anterior</button>
+      <button onclick="goTo('page-u3-s2')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u3-s2">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-3')">← Unidad 3</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 3 · Semana 2</span>
+      <h2>LISTAS ENLAZADAS</h2>
+      <p>Trabajos entregados en la semana 2.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 2</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u3s2-evidencia.jpg', 'Evidencia del trabajo - Unidad 3 Semana 2')">🖼️ u3s2-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u3s2-informe.pdf" target="_blank" rel="noopener">📄 u3s2-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u3-s1')">← Semana anterior</button>
+      <button onclick="goTo('page-u3-s3')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u3-s3">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-3')">← Unidad 3</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 3 · Semana 3</span>
+      <h2>LISTAS ENLAZADAS</h2>
+      <p>Trabajos entregados en la semana 3.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 3</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u3s3-evidencia.jpg', 'Evidencia del trabajo - Unidad 3 Semana 3')">🖼️ u3s3-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u3s3-informe.pdf" target="_blank" rel="noopener">📄 u3s3-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u3-s2')">← Semana anterior</button>
+      <button onclick="goTo('page-u3-s4')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u3-s4">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-3')">← Unidad 3</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 3 · Semana 4</span>
+      <h2>LISTAS ENLAZADAS</h2>
+      <p>Trabajos entregados en la semana 4.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 4</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u3s4-evidencia.jpg', 'Evidencia del trabajo - Unidad 3 Semana 4')">🖼️ u3s4-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u3s4-informe.pdf" target="_blank" rel="noopener">📄 u3s4-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u3-s3')">← Semana anterior</button>
+      <button disabled>Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= unidad-- 4 modificar las fotos o documentos ================= -->
+
+<main class="page" id="page-u4-s1">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-4')">← Unidad 4</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 4 · Semana 1</span>
+      <h2>ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</h2>
+      <p>Trabajos entregados en la semana 1.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 1</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u4s1-evidencia.jpg', 'Evidencia del trabajo - Unidad 4 Semana 1')">🖼️ u4s1-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u4s1-informe.pdf" target="_blank" rel="noopener">📄 u4s1-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button disabled>← Semana anterior</button>
+      <button onclick="goTo('page-u4-s2')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u4-s2">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-4')">← Unidad 4</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 4 · Semana 2</span>
+      <h2>ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</h2> 
+      <p>Trabajos entregados en la semana 2.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 2</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u4s2-evidencia.jpg', 'Evidencia del trabajo - Unidad 4 Semana 2')">🖼️ u4s2-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u4s2-informe.pdf" target="_blank" rel="noopener">📄 u4s2-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u4-s1')">← Semana anterior</button>
+      <button onclick="goTo('page-u4-s3')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u4-s3">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-4')">← Unidad 4</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 4 · Semana 3</span>
+      <h2>ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</h2>
+      <p>Trabajos entregados en la semana 3.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 3</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u4s3-evidencia.jpg', 'Evidencia del trabajo - Unidad 4 Semana 3')">🖼️ u4s3-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u4s3-informe.pdf" target="_blank" rel="noopener">📄 u4s3-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u4-s2')">← Semana anterior</button>
+      <button onclick="goTo('page-u4-s4')">Semana siguiente →</button>
+    </div>
+  </div>
+</main>
+
+<main class="page" id="page-u4-s4">
+  <div class="wrap">
+    <div class="breadcrumb-bar">
+      <button class="back-btn" onclick="goTo('page-unidad-4')">← Unidad 4</button>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Unidad 4 · Semana 4</span>
+      <h2>ARBOLES, GRAFOS, MÉTODOS DE ORDENACIÓN Y BÚSQUEDA</h2>
+      <p>Trabajos entregados en la semana 4.</p>
+    </div>
+    <div class="works-list">
+      <div class="work-item">
+        <div class="work-num">01</div>
+        <div>
+          <div class="work-title">Trabajo semana 4</div>
+          <p class="work-desc">Actividades demostradas en imagenes o documentos</p>
+          <div class="work-stack">Pendiente</div>
+          <button type="button" class="file-btn file-btn--image" onclick="openLightbox('trabajos/u4s4-evidencia.jpg', 'Evidencia del trabajo - Unidad 4 Semana 4')">🖼️ u4s4-evidencia.jpg</button>
+          <a class="file-btn file-btn--pdf" href="trabajos/u4s4-informe.pdf" target="_blank" rel="noopener">📄 u4s4-informe.pdf</a>
+        </div>
+      </div>
+    </div>
+    <div class="week-nav-footer">
+      <button onclick="goTo('page-u4-s3')">← Semana anterior</button>
+      <button disabled>Semana siguiente →</button>
+    </div>
+    <footer class="site-footer">Portafolio estudiantil 2026</footer>
+  </div>
+</main>
+
+
+<!-- ================= LIGHTBOX (vista grande de imágenes) jvs ================= -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+  function openLightbox(src, alt) {
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightboxImg');
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    var lb = document.getElementById('lightbox');
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  function goTo(pageId) {
+    document.querySelectorAll('.page').forEach(function (p) {
+      p.classList.remove('active');
+    });
+    document.getElementById(pageId).classList.add('active');
+    document.body.classList.toggle('is-home', pageId === 'page-inicio');
+    window.scrollTo(0, 0);
+    history.replaceState(null, '', '#' + pageId);
+  }
+
+  // Permite abrir directamente en una página vía #hash
+  window.addEventListener('DOMContentLoaded', function () {
+    var hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+      goTo(hash);
+    }
+  });
+</script>
+
+</body>
+</html>
