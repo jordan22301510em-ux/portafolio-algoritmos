@@ -1,0 +1,135 @@
+import java.util.Scanner;
+
+public class Main {
+
+    // Scanner para ingresar datos
+    static Scanner entrada = new Scanner(System.in);
+
+    // Vectores
+    static int[] codigo = new int[100];
+    static String[] nombre = new String[100];
+    static double[] sueldo = new double[100];
+
+    // Cantidad de empleados
+    static int numEmp = 0;
+
+    public static void main(String[] args) {
+
+        int opcion;
+
+        do {
+
+        
+            System.out.println("       SISTEMA DE EMPLEADOS");
+           
+            System.out.println("1. Registrar empleados");
+            System.out.println("2. Mostrar empleados");
+            System.out.println("3. Calcular sueldo promedio");
+            System.out.println("4. Salir");
+           
+
+            System.out.print("Ingrese una opcion: ");
+            opcion = entrada.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    registrarEmpleados();
+                    break;
+
+                case 2:
+                    mostrarEmpleados();
+                    break;
+
+                case 3:
+                    calcularPromedio();
+                    break;
+
+                case 4:
+                    System.out.println("\nPrograma finalizado.");
+                    break;
+
+                default:
+                    System.out.println("\nOpcion no valida.");
+            }
+
+        } while (opcion != 4);
+
+        entrada.close();
+    }
+
+    // Metodo para registrar empleados
+    public static void registrarEmpleados() {
+
+  
+        System.out.println("       REGISTRO DE EMPLEADOS");
+      
+
+        System.out.print("Ingrese la cantidad de empleados: ");
+        int cantidad = entrada.nextInt();
+        entrada.nextLine();
+
+        for (int i = 0; i < cantidad; i++) {
+
+            System.out.println("\nEmpleado " + (numEmp + 1));
+
+            System.out.print("Ingrese codigo: ");
+            codigo[numEmp] = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.print("Ingrese nombre: ");
+            nombre[numEmp] = entrada.nextLine();
+
+            System.out.print("Ingrese sueldo: ");
+            sueldo[numEmp] = entrada.nextDouble();
+
+            numEmp++;
+        }
+
+        System.out.println("\nEmpleados registrados correctamente.");
+    }
+
+    // Metodo para mostrar empleados
+    public static void mostrarEmpleados() {
+
+        if (numEmp == 0) {
+            System.out.println("\nNo hay empleados registrados.");
+            return;
+        }
+
+     
+        System.out.println("       LISTA DE EMPLEADOS");
+     
+
+        for (int i = 0; i < numEmp; i++) {
+
+            System.out.println("Codigo : " + codigo[i]);
+            System.out.println("Nombre : " + nombre[i]);
+            System.out.println("Sueldo : S/ " + sueldo[i]);
+            System.out.println("--------");
+        }
+    }
+
+    // Metodo para calcular el sueldo promedio
+    public static void calcularPromedio() {
+
+        if (numEmp == 0) {
+            System.out.println("\nNo hay empleados registrados.");
+            return;
+        }
+
+        double sumaSueldos = 0;
+
+        for (int i = 0; i < numEmp; i++) {
+            sumaSueldos = sumaSueldos + sueldo[i];
+        }
+
+        double promedio = sumaSueldos / numEmp;
+
+      
+        System.out.println("       SUELDO PROMEDIO");
+       
+        System.out.println("Cantidad de empleados: " + numEmp);
+        System.out.println("Sueldo promedio: S/ " + promedio);
+    }
+}

@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+
+        // Vectores
+        int[] codigo = new int[100];
+        String[] nombre = new String[100];
+        double[] notas = new double[100];
+
+        // Cantidad de alumnos
+        int numAlu = 0;
+
+        // Variable para acumular las notas
+        double sumaNotas = 0;
+
+        
+        System.out.println("       REGISTRO DE ALUMNOS");
+     
+
+        System.out.print("Ingrese la cantidad de alumnos: ");
+        numAlu = entrada.nextInt();
+        entrada.nextLine();
+
+        // Ingreso de datos
+        for (int i = 0; i < numAlu; i++) {
+
+            System.out.println("\nAlumno " + (i + 1));
+
+            System.out.print("Ingrese codigo: ");
+            codigo[i] = entrada.nextInt();
+            entrada.nextLine();
+
+            System.out.print("Ingrese nombre: ");
+            nombre[i] = entrada.nextLine();
+
+            System.out.print("Ingrese nota: ");
+            notas[i] = entrada.nextDouble();
+
+            // Acumular las notas
+            sumaNotas = sumaNotas + notas[i];
+        }
+
+        // Calcular promedio
+        double promedio = sumaNotas / numAlu;
+
+        // Mostrar los alumnos registrados
+       
+        System.out.println("       ALUMNOS REGISTRADOS");
+      
+
+        for (int i = 0; i < numAlu; i++) {
+
+            System.out.println("Codigo : " + codigo[i]);
+            System.out.println("Nombre : " + nombre[i]);
+            System.out.println("Nota   : " + notas[i]);
+            System.out.println("------------");
+        }
+
+        // Mostrar promedio
+        System.out.println("Promedio de todos los alumnos: " + promedio);
+
+        entrada.close();
+    }
+}
