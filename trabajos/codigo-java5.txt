@@ -1,0 +1,317 @@
+package evaluacion;
+
+import java.util.Scanner;
+
+public class RegistroAlumnos {
+
+    static Scanner teclado = new Scanner(System.in);
+
+    // Arreglos para almacenar los datos
+    static double[] codigo = new double[1000];
+    static String[] nombre = new String[1000];
+    static double[][] notas = new double[1000][20];
+
+    // Variables de control
+    static int numAlu = 0;
+    static int numNota = 0;
+
+    // ==========================================
+    // 1. DEFINIR LA CANTIDAD DE NOTAS
+    // ==========================================
+    public static void definirNotas() {
+
+        do {
+            System.out.print("Ingrese la cantidad de notas por alumno: ");
+            numNota = teclado.nextInt();
+
+            if (numNota < 1 || numNota > 20) {
+                System.out.println("La cantidad debe estar entre 1 y 20.");
+            }
+
+        } while (numNota < 1 || numNota > 20);
+    }
+
+    // ==========================================
+    // 2. REGISTRAR ALUMNO
+    // ==========================================
+    public static void registrarAlumno() {
+
+        if (numAlu >= 1000) {
+            System.out.println("No se pueden registrar más alumnos.");
+            return;
+        }
+
+        System.out.println("\n===== REGISTRAR ALUMNO =====");
+
+        System.out.print("Ingrese código: ");
+        codigo[numAlu] = teclado.nextDouble();
+
+        teclado.nextLine();
+
+        System.out.print("Ingrese nombre: ");
+        nombre[numAlu] = teclado.nextLine();
+
+        for (int i = 0; i < numNota; i++) {
+
+            do {
+                System.out.print("Ingrese nota " + (i + 1) + " (0 - 20): ");
+                notas[numAlu][i] = teclado.nextDouble();
+
+                if (notas[numAlu][i] < 0 ||
+                    notas[numAlu][i] > 20) {
+
+                    System.out.println(
+                        "La nota debe estar entre 0 y 20."
+                    );
+                }
+
+            } while (notas[numAlu][i] < 0 ||
+                     notas[numAlu][i] > 20);
+        }
+
+        numAlu++;
+
+        System.out.println("Alumno registrado correctamente.");
+    }
+
+    // ==========================================
+    // 3. CALCULAR PROMEDIO DE UN ALUMNO
+    // ==========================================
+    public static double calcularPromedio(int pos) {
+
+        double suma = 0;
+
+        for (int i = 0; i < numNota; i++) {
+            suma = suma + notas[pos][i];
+        }
+
+        return suma / numNota;
+    }
+
+    // ==========================================
+    // 4. CALCULAR PROMEDIO GENERAL
+    // ==========================================
+    public static double calcularPromedioGeneral() {
+
+        if (numAlu == 0) {
+            return 0;
+        }
+
+        double suma = 0;
+
+        for (int i = 0; i < numAlu; i++) {
+            suma = suma + calcularPromedio(i);
+        }
+
+        return suma / numAlu;
+    }
+
+    // ==========================================
+    // 5. MOSTRAR DATOS DE TODOS LOS ALUMNOS
+    // ==========================================
+    public static void mostrarAlumnos() {
+
+        if (numAlu == 0) {
+            System.out.println("\nNo hay alumnos registrados.");
+            return;
+        }
+
+        System.out.println("\n===== LISTA DE ALUMNOS =====");
+
+        for (int i = 0; i < numAlu; i++) {
+
+            System.out.println("\nAlumno " + (i + 1));
+            System.out.println("Código: " + codigo[i]);
+            System.out.println("Nombre: " + nombre[i]);
+
+            for (int j = 0; j < numNota; j++) {
+                System.out.println(
+                    "Nota " + (j + 1) + ": " + notas[i][j]
+                );
+            }
+
+            System.out.printf(
+                "Promedio: %.2f%n",
+                calcularPromedio(i)
+            );
+        }
+
+        System.out.printf(
+            "\nPromedio general del salón: %.2f%n",
+            calcularPromedioGeneral()
+        );
+    }
+
+    // ==========================================
+    // 6. BUSCAR ALUMNO POR CÓDIGO
+    // ==========================================
+    public static void buscarAlumno() {
+
+        if (numAlu == 0) {
+            System.out.println("\nNo hay alumnos registrados.");
+            return;
+        }
+
+        System.out.print("\nIngrese el código del alumno: ");
+        double codigoBuscar = teclado.nextDouble();
+
+        int posicion = -1;
+
+        // Buscar el código
+        for (int i = 0; i < numAlu; i++) {
+
+            if (codigo[i] == codigoBuscar) {
+                posicion = i;
+                break;
+            }
+        }
+
+        // Mostrar resultado
+        if (posicion == -1) {
+
+            System.out.println(
+                "No se encontró un alumno con ese código."
+            );
+
+        } else {
+
+            System.out.println("\n===== ALUMNO ENCONTRADO =====");
+
+            System.out.println(
+                "Código: " + codigo[posicion]
+            );
+
+            System.out.println(
+                "Nombre: " + nombre[posicion]
+            );
+
+            for (int i = 0; i < numNota; i++) {
+
+                System.out.println(
+                    "Nota " + (i + 1) + ": "
+                    + notas[posicion][i]
+                );
+            }
+
+            System.out.printf(
+                "Promedio: %.2f%n",
+                calcularPromedio(posicion)
+            );
+        }
+    }
+
+    // ==========================================
+    // 7. ORDENAR DE MENOR A MAYOR
+    //    SEGÚN EL PROMEDIO
+    // ==========================================
+    public static void ordenarPorPromedio() {
+
+        if (numAlu == 0) {
+            System.out.println("\nNo hay alumnos registrados.");
+            return;
+        }
+
+        // Método de ordenamiento
+        for (int i = 0; i < numAlu - 1; i++) {
+
+            for (int j = i + 1; j < numAlu; j++) {
+
+                if (calcularPromedio(i) >
+                    calcularPromedio(j)) {
+
+                    // Intercambiar códigos
+                    double auxCodigo = codigo[i];
+                    codigo[i] = codigo[j];
+                    codigo[j] = auxCodigo;
+
+                    // Intercambiar nombres
+                    String auxNombre = nombre[i];
+                    nombre[i] = nombre[j];
+                    nombre[j] = auxNombre;
+
+                    // Intercambiar todas las notas
+                    for (int k = 0; k < numNota; k++) {
+
+                        double auxNota = notas[i][k];
+
+                        notas[i][k] = notas[j][k];
+                        notas[j][k] = auxNota;
+                    }
+                }
+            }
+        }
+
+        System.out.println(
+            "\nAlumnos ordenados de menor a mayor promedio."
+        );
+
+        mostrarAlumnos();
+    }
+
+    // ==========================================
+    // 8. MENÚ PRINCIPAL
+    // ==========================================
+    public static void main(String[] args) {
+
+        int opcion;
+
+        // Primero se define cuántas notas tendrá cada alumno
+        definirNotas();
+
+        do {
+
+            System.out.println("\n");
+            System.out.println("================================");
+            System.out.println("       MENÚ DE ALUMNOS");
+            System.out.println("================================");
+            System.out.println("1. Registrar alumno");
+            System.out.println("2. Mostrar todos los alumnos");
+            System.out.println("3. Buscar alumno por código");
+            System.out.println("4. Ordenar por promedio");
+            System.out.println("5. Mostrar promedio general");
+            System.out.println("6. Salir");
+            System.out.println("================================");
+
+            System.out.print("Seleccione una opción: ");
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    registrarAlumno();
+                    break;
+
+                case 2:
+                    mostrarAlumnos();
+                    break;
+
+                case 3:
+                    buscarAlumno();
+                    break;
+
+                case 4:
+                    ordenarPorPromedio();
+                    break;
+
+                case 5:
+                    System.out.printf(
+                        "\nPromedio general: %.2f%n",
+                        calcularPromedioGeneral()
+                    );
+                    break;
+
+                case 6:
+                    System.out.println(
+                        "Programa finalizado."
+                    );
+                    break;
+
+                default:
+                    System.out.println(
+                        "Opción no válida."
+                    );
+            }
+
+        } while (opcion != 6);
+    }
+}

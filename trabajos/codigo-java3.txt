@@ -1,0 +1,114 @@
+package evaluacion;
+
+import java.util.Scanner;
+
+public class RegistroAlumnos {
+
+    static Scanner teclado = new Scanner(System.in);
+
+    // Arreglos para almacenar los datos
+    static double[] codigo = new double[100];
+    static String[] nombre = new String[100];
+    static double[][] notas = new double[100][3];
+
+    static int numAlu = 0;
+
+    // Método para registrar alumnos
+    public static void registrarAlumno() {
+
+        if (numAlu >= 100) {
+            System.out.println("No se pueden registrar más alumnos.");
+            return;
+        }
+
+        System.out.println("\n--- REGISTRAR ALUMNO ---");
+
+        System.out.print("Ingrese código: ");
+        codigo[numAlu] = teclado.nextDouble();
+        teclado.nextLine();
+
+        System.out.print("Ingrese nombre: ");
+        nombre[numAlu] = teclado.nextLine();
+
+        for (int i = 0; i < 3; i++) {
+            do {
+                System.out.print("Ingrese nota " + (i + 1) + " (0 - 20): ");
+                notas[numAlu][i] = teclado.nextDouble();
+
+                if (notas[numAlu][i] < 0 || notas[numAlu][i] > 20) {
+                    System.out.println("La nota debe estar entre 0 y 20.");
+                }
+
+            } while (notas[numAlu][i] < 0 || notas[numAlu][i] > 20);
+        }
+
+        numAlu++;
+
+        System.out.println("Alumno registrado correctamente.");
+    }
+
+    // Método para calcular el promedio
+    public static double calcularPromedio(int posicion) {
+
+        return (notas[posicion][0]
+                + notas[posicion][1]
+                + notas[posicion][2]) / 3;
+    }
+
+    // Método para mostrar alumnos
+    public static void mostrarAlumnos() {
+
+        if (numAlu == 0) {
+            System.out.println("\nNo hay alumnos registrados.");
+            return;
+        }
+
+        System.out.println("\n========== LISTA DE ALUMNOS ==========");
+
+        for (int i = 0; i < numAlu; i++) {
+
+            System.out.println("\nAlumno " + (i + 1));
+            System.out.println("Código : " + codigo[i]);
+            System.out.println("Nombre : " + nombre[i]);
+            System.out.println("Nota 1 : " + notas[i][0]);
+            System.out.println("Nota 2 : " + notas[i][1]);
+            System.out.println("Nota 3 : " + notas[i][2]);
+            System.out.printf("Promedio: %.2f%n", calcularPromedio(i));
+        }
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+
+        int opcion;
+
+        do {
+            System.out.println("\n========== MENÚ ==========");
+            System.out.println("1. Registrar alumno");
+            System.out.println("2. Mostrar alumnos y promedios");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opción: ");
+
+            opcion = teclado.nextInt();
+
+            switch (opcion) {
+
+                case 1:
+                    registrarAlumno();
+                    break;
+
+                case 2:
+                    mostrarAlumnos();
+                    break;
+
+                case 3:
+                    System.out.println("Programa finalizado.");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+        } while (opcion != 3);
+    }
+}
