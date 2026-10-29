@@ -568,3 +568,65 @@ footer.site-footer {
   font-size: 0.75rem;
   color: var(--ink-soft);
 }
+
+/* =============================================================
+   ASISTENTE ACADÉMICO (chat con robot flotante)
+   ============================================================= */
+/* Asistente académico — estilos del chat (no afecta tu style.css) */
+.ac-root{--ac-bg:#081628;--ac-bg2:#0d2340;--ac-line:#1f4a6e;--ac-text:#e6f0fa;--ac-mute:#8fb0cc;--ac-acc:#ffa24d;
+  position:fixed;right:20px;bottom:20px;z-index:90;font-family:"Segoe UI",system-ui,sans-serif;color:var(--ac-text)}
+.ac-root *{box-sizing:border-box}
+.ac-panel{position:absolute;right:0;bottom:100px;width:min(400px,calc(100vw - 24px));height:min(640px,calc(100vh - 110px));
+  display:none;flex-direction:column;background:linear-gradient(180deg,#0f2b4d,var(--ac-bg) 45%);
+  border:1px solid var(--ac-line);border-radius:24px;box-shadow:0 24px 60px #000a;overflow:hidden}
+.ac-root.open .ac-panel{display:flex}
+.ac-head{display:flex;gap:12px;align-items:center;padding:16px 18px;border-bottom:1px solid #ffffff14}
+.ac-avatar{width:52px;height:52px;border-radius:16px;background:var(--ac-bg2);border:1px solid var(--ac-line);display:grid;place-items:center;flex:none;overflow:hidden}
+.ac-avatar svg{width:42px;height:46px}
+.ac-head h2{margin:0;font-size:19px}
+.ac-head small{color:var(--ac-mute);display:block;margin-top:2px}
+.ac-x{margin-left:auto;width:44px;height:44px;border-radius:12px;border:0;background:#ffffff14;color:var(--ac-text);font-size:22px;cursor:pointer}
+.ac-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;color:var(--ac-mute);font-size:13px}
+.ac-bar i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5fe0a8;margin-right:8px}
+.ac-bar.off i{background:#ffa24d}
+.ac-reset{background:none;border:0;color:#6fd0e8;font-size:22px;cursor:pointer}
+.ac-log{flex:1;overflow-y:auto;padding:6px 18px 12px;display:flex;flex-direction:column;gap:12px}
+.ac-msg{max-width:90%;padding:12px 16px;border-radius:16px;line-height:1.55;font-size:15px;white-space:pre-wrap;word-wrap:break-word}
+.ac-msg.bot{background:#14304f;border:1px solid var(--ac-line);align-self:flex-start}
+.ac-msg.me{background:var(--ac-acc);color:#1b1206;align-self:flex-end}
+.ac-msg code{background:#00000055;padding:1px 6px;border-radius:6px;font-family:Consolas,monospace;font-size:13px}
+.ac-msg pre{background:#030a14;border:1px solid #ffffff18;border-radius:10px;padding:10px 12px;margin:8px 0;overflow-x:auto;white-space:pre}
+.ac-msg pre code{background:none;padding:0}
+.ac-msg a{display:inline-block;margin-top:8px;color:var(--ac-acc);cursor:pointer;text-decoration:underline}
+.ac-dots{display:flex;gap:5px;padding:16px}
+.ac-dots span{width:7px;height:7px;border-radius:50%;background:var(--ac-mute);animation:ac-b 1s infinite}
+.ac-dots span:nth-child(2){animation-delay:.15s}.ac-dots span:nth-child(3){animation-delay:.3s}
+@keyframes ac-b{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.ac-chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 10px}
+.ac-chip{flex:1 1 40%;padding:10px 12px;border-radius:12px;border:1px solid var(--ac-line);background:#0f2b4d;
+  color:var(--ac-text);font-size:13px;cursor:pointer}
+.ac-chip:hover{border-color:var(--ac-acc)}
+.ac-form{display:flex;gap:8px;margin:0 18px;padding:6px;border:1px solid var(--ac-line);border-radius:16px;background:#06101e}
+.ac-form input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ac-text);font-size:15px;padding:0 10px}
+.ac-form button{width:48px;height:44px;border:0;border-radius:12px;background:var(--ac-acc);font-size:22px;cursor:pointer}
+.ac-form button:disabled{opacity:.5;cursor:wait}
+.ac-foot{text-align:center;color:var(--ac-mute);font-size:12px;padding:10px 18px 14px}
+.ac-root :focus-visible{outline:2px solid var(--ac-acc);outline-offset:2px}
+.ac-flash{outline:3px solid var(--ac-acc)!important;outline-offset:6px}
+@media (prefers-reduced-motion:reduce){.ac-dots span{animation:none;opacity:.7}}
+.ac-head h2{font-family:inherit;color:var(--ac-text);font-weight:700;letter-spacing:0}
+
+
+/* ---------- Robot flotante ---------- */
+.ac-launch{width:76px;height:88px;padding:0;border:0;background:none;cursor:pointer;display:block;position:relative;animation:ac-float 3.2s ease-in-out infinite}
+.ac-launch svg{width:100%;height:100%;display:block;filter:drop-shadow(0 10px 12px rgba(0,0,0,.45))}
+.ac-launch:hover svg{filter:drop-shadow(0 10px 12px rgba(0,0,0,.45)) brightness(1.08)}
+.ac-launch:hover{animation-duration:1.6s}
+.ac-eye{transform-box:fill-box;transform-origin:center;animation:ac-blink 4.6s infinite}
+.ac-flame{transform-box:fill-box;transform-origin:top center;animation:ac-flame .28s ease-in-out infinite alternate}
+.ac-ant{animation:ac-pulse 1.6s ease-in-out infinite}
+@keyframes ac-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ac-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes ac-flame{from{transform:scaleY(.65)}to{transform:scaleY(1.25)}}
+@keyframes ac-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.ac-launch,.ac-eye,.ac-flame,.ac-ant{animation:none}}
