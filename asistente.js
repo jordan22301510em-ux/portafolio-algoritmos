@@ -5,7 +5,7 @@
 (() => {
   /* ===== CONFIGURA AQUÍ ===== */
   const CONFIG = {
-    endpoint: "https://TU-WORKER.workers.dev",   // URL de tu Worker de Cloudflare
+    endpoint: "https://asistente-portafolio.ingasanchezjordan268.workers.dev",,   // URL de tu Worker de Cloudflare
     nombre: "Asistente académico",
     subtitulo: "Portafolio · UPLA",
     saludo: "¡Hola! Soy el asistente de este portafolio. Puedo contarte sobre las unidades, las semanas y las actividades publicadas, explicarte conceptos como pilas, colas o listas enlazadas, y ayudarte a estudiar. ¿Qué quieres saber?",
