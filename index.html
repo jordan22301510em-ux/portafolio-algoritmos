@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inga Sanchez Jordan — Portafolio estudiantil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-home">
+<canvas id="rain" aria-hidden="true"></canvas>
 
 <!-- ================= ENCABEZADO FIJO (logo + datos) ================= -->
 <header class="topnav">
@@ -29,6 +33,10 @@
       <span class="hd-dot">•</span>
       <span class="hd-item">Huancayo</span>
     </div>
+    <nav class="topmenu" aria-label="Menú principal">
+      <button type="button" class="on" data-sec="inicio" onclick="goTo('page-inicio')">Inicio</button>
+      <button type="button" data-sec="unidades" onclick="goTo('page-unidades')">Unidades</button>
+    </nav>
   </div>
 </header>
 
@@ -38,6 +46,7 @@
     <div class="hero-info">
       <span class="eyebrow fade-up d1">Portafolio de JORDAN</span>
       <h1 class="course-title fade-up d2">ALGORITMOS Y ESTRUCTURA DE DATOS</h1>
+      <p class="role fade-up d3" id="role" aria-live="polite"></p>
       <p class="hero-desc fade-up d3">
         Presentacion de las actividades.
       </p>
@@ -48,8 +57,11 @@
     </div>
 
     <div class="hero-photo fade-up d3">
-      <div class="photo-frame">
-        <img src="usuario.png" alt="Foto de Jordan Inga Sánchez" class="student-photo">
+      <div class="photo-wrap">
+        <div class="photo-frame">
+          <img src="usuario.png" alt="Foto de Jordan Inga Sánchez" class="student-photo">
+        </div>
+        <span class="photo-tag">UPLA // SYS-ENG</span>
       </div>
     </div>
   </div>
@@ -708,7 +720,7 @@
         </div>
       </div>
     </div>
-    } <div class="works-list">
+    <div class="works-list">
       <div class="work-item">
         <div class="work-num">10</div>
         <div>
@@ -756,7 +768,7 @@
         </div>
       </div>
     </div>
-    } <div class="works-list">
+    <div class="works-list">
       <div class="work-item">
         <div class="work-num">14</div>
         <div>
@@ -2294,18 +2306,56 @@
 </main>
 
 
-<!-- ================= LIGHTBOX (vista grande de imágenes) jvs ================= -->
+<!-- ================= LIGHTBOX (vista grande de imágenes con zoom) ================= -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
-  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+  <div class="lb-bar" onclick="event.stopPropagation()">
+    <strong class="lb-title" id="lbTitle"></strong>
+    <button type="button" onclick="lbZoomBy(-0.25)">− Alejar</button>
+    <button type="button" id="lbZoom" onclick="lbReset()">100%</button>
+    <button type="button" onclick="lbZoomBy(0.25)">+ Agrandar</button>
+    <a id="lbOpen" target="_blank" rel="noopener">Ver original</a>
+    <a id="lbDown" download>Descargar</a>
+    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕ Cerrar</button>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" onload="window.lbOk&&lbOk()" onerror="window.lbFail&&lbFail()">
+    <p class="lb-msg" id="lbMsg">No se pudo cargar la imagen.<br><small id="lbPath"></small></p>
+  </div>
+  <p class="lb-hint" onclick="event.stopPropagation()">Rueda del ratón para zoom · Arrastra para mover · Esc para cerrar</p>
 </div>
 
 <script>
+  var lbZ = 1, lbX = 0, lbY = 0, lbDrag = null, lbMoved = false;
+
+  function lbApply() {
+    document.getElementById('lightboxImg').style.transform =
+      'translate(' + lbX + 'px,' + lbY + 'px) scale(' + lbZ + ')';
+    document.getElementById('lbZoom').textContent = Math.round(lbZ * 100) + '%';
+  }
+  function lbZoomBy(d) { lbZ = Math.min(5, Math.max(0.5, lbZ + d)); lbApply(); }
+  function lbReset() { lbZ = 1; lbX = 0; lbY = 0; lbApply(); }
+  function lbOk() {
+    document.getElementById('lightboxImg').style.display = '';
+    document.getElementById('lbMsg').style.display = 'none';
+  }
+  function lbFail() {
+    var img = document.getElementById('lightboxImg');
+    if (!img.getAttribute('src')) return;
+    img.style.display = 'none';
+    document.getElementById('lbMsg').style.display = 'block';
+    document.getElementById('lbPath').textContent = img.getAttribute('src');
+  }
+
   function openLightbox(src, alt) {
     var lb = document.getElementById('lightbox');
     var img = document.getElementById('lightboxImg');
-    img.src = src;
+    lbReset();
+    lbOk();
     img.alt = alt || '';
+    img.src = src;
+    document.getElementById('lbTitle').textContent = alt || '';
+    document.getElementById('lbOpen').href = src;
+    document.getElementById('lbDown').href = src;
     lb.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -2315,6 +2365,28 @@
     lb.classList.remove('active');
     document.body.style.overflow = '';
   }
+
+  (function () {
+    var st = document.getElementById('lbStage');
+    st.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      lbZoomBy(e.deltaY < 0 ? 0.15 : -0.15);
+    }, { passive: false });
+    st.addEventListener('pointerdown', function (e) {
+      lbDrag = { x: e.clientX - lbX, y: e.clientY - lbY }; lbMoved = false;
+      st.style.cursor = 'grabbing';
+      if (st.setPointerCapture) st.setPointerCapture(e.pointerId);
+    });
+    st.addEventListener('pointermove', function (e) {
+      if (!lbDrag) return;
+      lbX = e.clientX - lbDrag.x; lbY = e.clientY - lbDrag.y; lbMoved = true; lbApply();
+    });
+    st.addEventListener('pointerup', function () { lbDrag = null; st.style.cursor = 'grab'; });
+    st.addEventListener('click', function (e) {
+      if (e.target === st && !lbMoved) closeLightbox();
+      e.stopPropagation();
+    });
+  })();
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeLightbox();
@@ -2326,8 +2398,13 @@
     });
     document.getElementById(pageId).classList.add('active');
     document.body.classList.toggle('is-home', pageId === 'page-inicio');
+    var sec = pageId === 'page-inicio' ? 'inicio' : 'unidades';
+    document.querySelectorAll('.topmenu button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-sec') === sec);
+    });
     window.scrollTo(0, 0);
     history.replaceState(null, '', '#' + pageId);
+    if (pageId === 'page-inicio' && window.heroFx) window.heroFx();
   }
 
   // Permite abrir directamente en una página vía #hash
@@ -2337,6 +2414,97 @@
       goTo(hash);
     }
   });
+</script>
+
+<!-- ================= EFECTOS: rayos de fondo + título animado ================= -->
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Rayos cayendo por toda la pantalla ---- */
+  var c = document.getElementById('rain');
+  if (c && c.getContext && !reduce) {
+    var x = c.getContext('2d'), w, h, bolts = [], nx = 0;
+    var rs = function () { w = c.width = innerWidth; h = c.height = innerHeight; };
+    rs(); addEventListener('resize', rs);
+    var R = function (a, b) { return a + Math.random() * (b - a); };
+    var mk = function () {
+      var px = R(0, w), py = Math.random() < 0.6 ? -10 : R(0, h * 0.55);
+      var len = R(h * 0.25, h * 0.85), drift = R(-0.9, 0.9), end = py + len;
+      var pts = [[px, py]], br = [];
+      while (py < end) { py += R(12, 34); px += drift * R(4, 22) + R(-24, 24); pts.push([px, py]); }
+      pts.forEach(function (p, i) {
+        if (i > 1 && Math.random() < 0.25) {
+          var bx = p[0], by = p[1], dir = Math.random() < 0.5 ? -1 : 1, q = [[bx, by]], n = R(3, 6);
+          for (var j = 0; j < n; j++) { bx += dir * R(6, 26); by += R(8, 22); q.push([bx, by]); }
+          br.push(q);
+        }
+      });
+      return { pts: pts, br: br, life: 1, fade: R(0.025, 0.05), lw: R(1, 2.2) };
+    };
+    var path = function (p) {
+      x.beginPath();
+      p.forEach(function (q, i) { i ? x.lineTo(q[0], q[1]) : x.moveTo(q[0], q[1]); });
+      x.stroke();
+    };
+    (function f(t) {
+      x.clearRect(0, 0, w, h);
+      if (t > nx && bolts.length < 9) {
+        bolts.push(mk()); if (Math.random() < 0.3) bolts.push(mk());
+        nx = t + R(300, 850);
+      }
+      bolts = bolts.filter(function (b) { return b.life > 0; });
+      bolts.forEach(function (b) {
+        b.life -= b.fade;
+        var a = Math.max(b.life, 0) * (Math.random() > 0.15 ? 1 : 0.4);
+        x.shadowColor = '#2f9bff'; x.shadowBlur = 16; x.lineJoin = 'round';
+        x.lineWidth = b.lw + 2.5; x.strokeStyle = 'rgba(47,155,255,' + (a * 0.45) + ')'; path(b.pts);
+        x.lineWidth = b.lw; x.strokeStyle = 'rgba(215,242,255,' + a + ')'; path(b.pts);
+        x.lineWidth = 1; x.strokeStyle = 'rgba(127,208,255,' + (a * 0.8) + ')';
+        b.br.forEach(path); x.shadowBlur = 0;
+      });
+      requestAnimationFrame(f);
+    })(0);
+  }
+
+  /* ---- Título que cae letra por letra + frase que cambia ---- */
+  var token = 0;
+  window.heroFx = function () {
+    var id = ++token;
+    var h1 = document.querySelector('.course-title');
+    var role = document.getElementById('role');
+    if (h1) {
+      if (!h1.getAttribute('data-t')) h1.setAttribute('data-t', h1.textContent.replace(/\s+/g, ' ').trim());
+      var words = h1.getAttribute('data-t').split(' '), k = 0, html = '';
+      words.forEach(function (wd, wi) {
+        html += (wi ? ' ' : '') + '<span class="w' + (words.length > 3 && wi >= 2 ? ' hl' : '') + '">';
+        wd.split('').forEach(function (ch) {
+          html += '<span class="zl" style="animation-delay:' + (k++ * 45) + 'ms">' + ch + '</span>';
+        });
+        html += '</span>';
+      });
+      h1.innerHTML = html;
+    }
+    if (!role) return;
+    var roles = ['Estudiante de Ingeniería de Sistemas y Computación',
+                 'Algoritmos y estructuras de datos',
+                 'Portafolio de actividades · Ciclo 2026'];
+    if (reduce) { role.textContent = '> ' + roles[0]; return; }
+    role.style.opacity = 0;
+    var go = function (i) {
+      if (id !== token) return;
+      role.style.opacity = 0;
+      setTimeout(function () {
+        if (id !== token) return;
+        role.textContent = '> ' + roles[i];
+        role.style.opacity = 1;
+        setTimeout(function () { go((i + 1) % roles.length); }, 2600);
+      }, 400);
+    };
+    setTimeout(function () { go(0); }, 900);
+  };
+  window.heroFx();
+})();
 </script>
 
 <!-- Asistente académico -->
